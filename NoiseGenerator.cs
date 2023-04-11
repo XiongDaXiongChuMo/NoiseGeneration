@@ -46,7 +46,7 @@
             }
         }
 
-        public abstract float Evaluate(Vector2 sample, bool smotherStep = false);
+        public abstract float Evaluate(Vector2 sample);
 
 
         internal byte[] UnpackValue(int value)

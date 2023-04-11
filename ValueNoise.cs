@@ -2,9 +2,11 @@
 {
     public class ValueNoise : NoiseGenerator
     {
+        public bool useSmotherStep = false;
+
         public ValueNoise(int seed) : base(seed) { }
 
-        public override float Evaluate(Vector2 sample, bool smotherStep = false)
+        public override float Evaluate(Vector2 sample)
         {
             int xFloored = FastFloor(sample.x);
             int yFloored = FastFloor(sample.y);
@@ -21,7 +23,7 @@
             float ty = sample.y - yFloored;
 
             System.Func<float, float, float, float> interpolation = Interpolation.SmoothStep;
-            if (smotherStep) interpolation = Interpolation.SmootherStep;
+            if (useSmotherStep) interpolation = Interpolation.SmootherStep;
 
             return interpolation(ty,
                     interpolation(tx, gridValues[0], gridValues[1]),
