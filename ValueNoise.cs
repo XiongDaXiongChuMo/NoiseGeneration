@@ -37,8 +37,8 @@
             byte[] yUnpacked = UnpackValue(y << 7);
             
             int index = (
-                xUnpacked[0] ^ xUnpacked[1] ^ xUnpacked[2] ^ xUnpacked[2] ^ 
-                yUnpacked[0] ^ yUnpacked[1] ^ yUnpacked[2] ^ yUnpacked[2]) % SourceSize;
+                xUnpacked[0] ^ xUnpacked[1] ^ xUnpacked[2] ^ xUnpacked[3] ^ 
+                yUnpacked[0] ^ yUnpacked[1] ^ yUnpacked[2] ^ yUnpacked[3]) % SourceSize;
 
             return random[index] / 255f * 2f - 1;
         }
